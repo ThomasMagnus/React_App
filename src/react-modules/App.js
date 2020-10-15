@@ -7,6 +7,17 @@ import PostStatusFilter from "./post-status-filter/post-status-filter";
 import './app.css';
 
 function App() {
+
+    const createRandomNum = () => {
+        return `glo${(Math.random() * 1e8).toString(16)}`
+    }
+
+    const data = [
+        {label: 'Изучение реакт', id: createRandomNum()},
+        {label: 'Практика', id: createRandomNum()},
+        {label: 'Теория', id: createRandomNum()},
+    ]
+
   return (
     <div className="app">
       <Header/>
@@ -14,7 +25,7 @@ function App() {
           <SearchPanel/>
           <PostStatusFilter/>
       </div>
-      <PostList/>
+      <PostList posts = {data}/>
       <PostAddForm/>
     </div>
   )
